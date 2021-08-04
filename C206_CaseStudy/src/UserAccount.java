@@ -16,7 +16,6 @@ public class UserAccount {
 	public String getName() {
 		return name;
 	}
-
 	public String getRole() {
 		return role;
 	}

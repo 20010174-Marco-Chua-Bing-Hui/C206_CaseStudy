@@ -512,7 +512,7 @@ public static void viewAllBid(ArrayList<Bid> BidList) {
 				BidList.remove(i);
 				isDeleted = true;
 			}else {
-				isDeleted = false;
+		isDeleted = false;
 			}
 					
 		}if (isDeleted == true) {

@@ -19,8 +19,7 @@ public class Bid {
 	  private String buyerEmail;
 	  private double current_bid_price;
 
-	  
-	  
+
 	  
 	  public Bid(int bid_id, String name,String sellerEmail, String buyerEmail, double current_bid_price) {
 	    this.bid_id = bid_id;

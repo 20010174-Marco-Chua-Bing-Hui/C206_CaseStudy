@@ -9,7 +9,6 @@ public class Categories {
 	
 	public String getName(){
 		return name;
-		
 	}
 	
 }

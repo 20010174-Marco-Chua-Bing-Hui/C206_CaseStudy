@@ -18,7 +18,7 @@ public class Item {
   private String startDate;
   private String endDate;
   private double bidIncre;
-  
+
   public Item(String itemname, String desc, double minBid, String startDate, String endDate, double bidIncre) {
     this.itemname = itemname;
     this.desc = desc;
@@ -28,8 +28,7 @@ public class Item {
     this.bidIncre = bidIncre;
         
   }
-  
-
+ 
   public String getItemname() {
     return itemname;
   }
