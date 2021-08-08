@@ -10,13 +10,14 @@ public class C206_CaseStudy {
 
 		ArrayList<UserAccount> accountList = new ArrayList<UserAccount>();
 		ArrayList<Categories> categoryList = new ArrayList<Categories>();
-		ArrayList<Bid> BidList = new ArrayList<Bid>();
+		ArrayList<bid> BidList = new ArrayList<bid>();
 		ArrayList<Item> ItemList = new ArrayList<Item>();
 		
 		accountList.add(new UserAccount("Anthea", "student", "12345@myrp.edu.sg", "123abc"));
 		accountList.add(new UserAccount("Betty", "student", "55647@myrp.edu.sg", "456def"));
 		categoryList.add(new Categories("Watch"));
-		BidList.add(new Bid(1, "Pokemon", "alice@hotmail.com", "roar@gmail.com", 20.00));
+		BidList.add(new bid(1, "Pokemon", "alice@hotmail.com", "roar@gmail.com", 20.00));
+		BidList.add(new bid(2, "Ball", "hawt@hotmail.com", "hello@gmail.com", 10.00));
 		ItemList.add(new Item("Pokemon", "card", 5.00,"05/11/2021", "25/11/2021",5.00 ));
 		
 		int option = 0;
@@ -122,9 +123,10 @@ public class C206_CaseStudy {
 					if (bidoption == 1) {
 						// view all bid
 						C206_CaseStudy.viewAllBid(BidList);
+						
 					}else if (bidoption == 2) {
 						// add bid
-						Bid bid1 = C206_CaseStudy.inputBid(BidList, ItemList);
+						bid bid1 = C206_CaseStudy.inputBid(BidList, ItemList);
 						C206_CaseStudy.addBid(BidList, bid1);
 					}else if (bidoption == 3) {
 						C206_CaseStudy.deleteBid(BidList);
@@ -449,7 +451,7 @@ public class C206_CaseStudy {
 		System.out.println("3. Delete bid based on ID");
 		System.out.println("4. Quit");
 	}
-	public static String retrieveAllBid(ArrayList<Bid> BidList) {
+	public static String retrieveAllBid(ArrayList<bid> BidList) {
 		String output = "";
 		// write your code here
 		for (int i = 0; i < BidList.size(); i++) {
@@ -459,7 +461,7 @@ public class C206_CaseStudy {
 		}
 		return output;
 	}
-public static void viewAllBid(ArrayList<Bid> BidList) {
+public static void viewAllBid(ArrayList<bid> BidList) {
 		Helper.line(50, "-");
 		System.out.println("BID LIST");
 		Helper.line(50, "-");
@@ -469,7 +471,7 @@ public static void viewAllBid(ArrayList<Bid> BidList) {
 		System.out.println(output);
 	}
 	
-	public static boolean isValidBid(ArrayList<Bid> BidList, double price, ArrayList<Item> ItemList) {
+	public static boolean isValidBid(ArrayList<bid> BidList, double price, ArrayList<Item> ItemList) {
 		boolean isValid = false;
 		for (int x = 0;x < ItemList.size(); x++) {
 			for (int i = 0; i < BidList.size(); i++) {
@@ -480,7 +482,7 @@ public static void viewAllBid(ArrayList<Bid> BidList) {
 		}
 		return isValid;
 	}
-	public static Bid inputBid(ArrayList<Bid> BidList, ArrayList<Item> ItemList) {
+	public static bid inputBid(ArrayList<bid> BidList, ArrayList<Item> ItemList) {
 		int ID = Helper.readInt("Enter Bids ID > ");
 		String name = Helper.readString("Enter Item name > ");
 		String buyerEmail = Helper.readString("Enter Buyer email > ");
@@ -489,19 +491,19 @@ public static void viewAllBid(ArrayList<Bid> BidList) {
 		boolean isValid = isValidBid(BidList, price, ItemList);
 		
 		if (isValid == true) {
-			Bid bid1 = new Bid(ID, name, buyerEmail, sellerEmail, price);
-			return bid1;
+			bid bid0 = new bid(ID, name, buyerEmail, sellerEmail, price);
+			return bid0;
 		}else {
 			return null;
 		}
 	}
-	public static void addBid(ArrayList<Bid> BidList, Bid bid1) {
+	public static void addBid(ArrayList<bid> BidList, bid bid1) {
 
 		BidList.add(bid1);
 		System.out.println("Bid added");
 	}
 	
-	public static void deleteBid(ArrayList<Bid>BidList) {
+	public static void deleteBid(ArrayList<bid>BidList) {
 		Helper.line(50, "-");
 		System.out.println("DELETE BID");
 		Helper.line(50, "-");
